@@ -7,11 +7,23 @@ const long; //get user input if intending long or short msg
 
 
 function buildMessage(name='',msgType,long=true){
-msgType=getMsgType(msgType);
+//msgType=getMsgType(msgType);
 let introMsg=[`Hi${name}! Hope you are doing well today!`,`How is it going${name}?`,`How have you been lately${name}?`];
-let sampleMsg=[`I would love to offer you a sample of our products if you would be willing to try!`]
-console.log(introMsg+'/n'+sampleMsg)
-
+let sampleMsg=[`I would love to offer you a sample of our products if you would be willing to try!`,`We offer over 350 products in the premium health, home, and beauty market! I would love to get you a sample if you would be willing to try!`,`Can I offer you a free sample of some high-quality products?`];
+let garunteeTag='We offer a 180-day money-back garuntee on everything, even if you\'ve tried the product already!';
+let DTMmsg=['When would you have time for a quick 5-10 min phone call?','','Would love to chat soon!  Do you have time for a quick call in the next day or two?'];
+let introIndex = Math.floor(Math.random()*introMsg.length);
+let sampleIndex = Math.floor(Math.random()*sampleMsg.length);
+let DTMindex = Math.floor(Math.random()*DTMmsg.length);
+if(msgType==='customer reachout'){
+console.log(introMsg[introIndex]+'\n'+sampleMsg[sampleIndex]);
+}
+else if(msgType==='DTM'){
+    console.log(introMsg[introIndex]+'\n'+DTMmsg[DTMindex]);
+}
+else if (msgType==='initial customer reachout'){
+    console.log(introMsg[introIndex]+'\n\n'+sampleMsg[sampleIndex]+' '+garunteeTag);
+}
 }
 
 
@@ -30,10 +42,12 @@ useNickname:useNickname}
 
 /*returns an indexing number based on what type of msg user is trying to create */
 function getMsgType(msgType){
-    const type=['customer reachout','initial customer reachout','DTM phone call','customer follow-up','board plan'];
+    const type=['customer reachout','initial customer reachout','DTM','customer follow-up','board plan'];
     if (type.indexOf(msgType)!==-1){return type.indexOf(msgType)}
     else{console.log('message type non-existent')}
 }
 
 /* test code below */
 buildMessage(' John Smith','customer reachout');
+console.log('\n\n')
+buildMessage(' John Cena','initial customer reachout');
