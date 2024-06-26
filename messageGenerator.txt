@@ -1,0 +1,22 @@
+const msgTYPE=''; //get user input for which type of msg they would like (cust follow-up, DTM, Step 1 follow-up, etc.)
+const long; //get user input if intending long or short msg
+
+let introMsg=[`Hi${name}! Hope you are doing well today!`,`How is it going${name}?`,`How have you been lately${name}?`];
+
+let sampleMsg=[`I would love to offer you a sample of our products if you would be willing to try!`
+
+function buildMessage(name='',msgTYPE,long=true){
+
+}
+
+function buildCustomer(firstName,lastName=null,nickname=null,favoriteProduct=null,otherProducts=null,kids=false,useFullName=false,useNickname=false){
+const name = firstName+'_'+lastName;
+return name{firstName:firstName,
+lastName:lastName,
+nickname:nickname,
+favoriteProduct:favoritProduct,
+otherProducts:otherProducts,
+kids:kids,
+useFullName:useFullName,
+useNickname:useNickname}
+}
